@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+
+<head>
+<title>optellen</title>
+<link rel="stylesheet" href="som.css" type="text/css" />
+</head>
+
+<body>
+
+<form action="" method="post" id="opteller" name="opteller">
+<fieldset>
+<legend>Optellen</legend>
+
+<div >
+<label for="getal1">getal 1</label>
+<input type="text" name="getal1" id="getal1"   id="tekstveld"/>
+</div>
+
+<div >
+<label for="getal2">getal 2</label>
+<input type="text" name="getal2" id="getal2"  id="tekstveld"/>
+</div>
+
+<div >
+<label for="getal3">getal 3</label>
+<input type="text" name="getal3" id="getal3"   id="tekstveld"/>
+</div>
+
+<div >
+<label for="getal4">getal 4</label>
+<input type="text" name="getal4" id="getal4"   id="tekstveld"/>
+</div>
+
+<div>
+<label for="getal5">getal 5</label>
+<input type="text" name="getal5" id="getal5"   id="tekstveld"/>
+</div>
+
+<div>
+<label for="getal6">getal 6</label>
+<input type="text" name="getal6" id="getal6"   id="tekstveld"/>
+</div>
+
+</fieldset>
+
+<div>
+<input type="submit" name="button" value="Tel op" id="knop"/>
+</div>
+
+<div>
+<input type="reset" name="Reset" value="Reset" id="knop"/>
+</div>
+
+<div >
+<label for="som">De uitkomst is:</label>
+<input type="text" name="som" id="som"  id="tekstveld"/>
+</div>
+
+</form>
+
+<script type="text/javascript">
+
+function optellen() {
+	'use strict' 
+	var som;
+	
+	var g1 = document.getElementById('getal1').value;
+	var g2 = document.getElementById('getal2').value;
+	var g3 = document.getElementById('getal3').value;
+	var g4 = document.getElementById('getal4').value;
+	var g5 = document.getElementById('getal5').value;
+	var g6 = document.getElementById('getal6').value;
+	
+	var som = parseFloat(g1)+parseFloat(g2)+parseFloat(g3)+parseFloat(g4)+parseFloat(g5)+parseFloat(g6);
+	
+	document.getElementById('som').value = som;
+	return false;    
+} 
+
+function init() {
+	'use strict'
+	document.getElementById('opteller').onsubmit = optellen;
+}
+window.onload = init;
+
+</script>
+
+</body>
+</html>

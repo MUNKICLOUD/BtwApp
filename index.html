@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+
+		<link href="css/btw.css" rel="stylesheet" />
+<title>btw</title>
+		
+</head>
+
+<body>
+<div id="main-container">
+    <!-- het formulier -->
+    <form action="" method="post" name="theForm" id="theForm">
+        <fieldset>
+            <legend>Bereken incl BTW en/of korting</legend>
+			<div><label for="aantal">Aantal</label><input type="number" name="aantal" id="aantal" value="1" min="1" required /></div>
+            
+			<div><label for="prijs">Prijs per stuk</label><input type="text" name="prijs" id="prijs" value="0.00" required /></div>
+            
+			<div><label for="btw">BTW</label><input type="text" name="btw" id="btw" value="0.00" required /></div>
+            
+			<div><label for="korting">Korting</label><input type="text" name="korting" id="korting" value="0.00" required /></div>
+			
+			<div><label for="kortproc">Korting in procenten</label><input type="text" name="kortpoc" id="kortproc" value="0.00" required /></div>
+			
+			<div><input type="submit" value="Bereken" id="submit" /></div>
+            
+			<div><label for="totaal">Totaal</label><input type="text" name="totaal" id="totaal" value="0.00" /></div>
+            
+			
+        </fieldset>
+    </form>
+    <script>
+    
+function bereken() {
+	'use strict' 
+	var totaal;
+	
+    var aantal = document.getElementById('aantal').value;
+    var prijs = document.getElementById('prijs').value;
+    var btw = document.getElementById('btw').value;
+    var korting = document.getElementById('korting').value;
+    var kortproc = document.getElementById('kortproc').value;
+	
+	totaal = aantal * prijs;
+	btw = btw/100 + 1;
+	totaal = totaal * btw;
+	totaal = totaal - korting;
+	kortproc = 1 - kortproc/100;
+	totaal = totaal * kortproc;
+
+	totaal = totaal.toFixed(2);
+	
+	document.getElementById('totaal').value = totaal;
+	return false;    
+} 
+
+function init() {
+	'use strict'
+	document.getElementById('theForm').onsubmit = bereken;
+}
+window.onload = init;
+    
+    </script>
+    </div>
+</body>
+</html>
